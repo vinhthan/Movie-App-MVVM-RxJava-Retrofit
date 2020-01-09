@@ -5,20 +5,23 @@ import android.util.Log;
 
 import com.example.moviemvvmrxjavaretrofit.data.model.api.Constants;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
+import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
 import com.example.moviemvvmrxjavaretrofit.data.remote.ApiManager;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
 
-public class MoviePopularViewModel {
+public class MovieViewModel {
 
     private ApiManager apiManager;
 
-    public BehaviorSubject<MoviePopular> moviesBehaviorSubject;
+    public BehaviorSubject<MoviePopular> moviesPopularBehaviorSubject;
+    public BehaviorSubject<MovieUpcoming> movieUpcomingBehaviorSubject;
 
-    public MoviePopularViewModel() {
-        moviesBehaviorSubject = BehaviorSubject.create();
+    public MovieViewModel() {
+        moviesPopularBehaviorSubject = BehaviorSubject.create();
+        movieUpcomingBehaviorSubject = BehaviorSubject.create();
         apiManager = new ApiManager();
     }
 
@@ -28,10 +31,21 @@ public class MoviePopularViewModel {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(moviePopular -> {
-                    moviesBehaviorSubject.onNext(moviePopular);
+                    moviesPopularBehaviorSubject.onNext(moviePopular);
                 }, error ->{
                     Log.d("TAG", "getMovies: " + error);
                 });
 
     }
+
+    @SuppressLint("CheckResult")
+    public void getMovieUpcoming(){
+        apiManager.getMovieUpcoming(Constants.API_KEY)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(movieUpcoming -> {
+                    movieUpcomingBehaviorSubject.onNext(movieUpcoming);
+                });
+    }
+
 }

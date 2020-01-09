@@ -17,4 +17,13 @@ public class ApiClient {
                 .build();
         return retrofit;
     }
+
+    public static Retrofit getRetrofitMovieUpcoming(){
+        retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                .build();
+        return retrofit;
+    }
 }

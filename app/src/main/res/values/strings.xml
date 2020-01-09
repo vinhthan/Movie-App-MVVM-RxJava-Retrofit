@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Movie MVVM RxJava Retrofit</string>
+
+    <string name="popular">Popular</string>
 </resources>

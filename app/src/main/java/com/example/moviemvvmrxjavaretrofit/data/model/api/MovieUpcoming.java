@@ -5,24 +5,33 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 
-public class MoviePopular {
+public class MovieUpcoming {
+    @SerializedName("results")
+    private final List<Results> results;
+
     @SerializedName("page")
     private final int page;
 
     @SerializedName("total_results")
     private final int totalResults;
 
+    @SerializedName("dates")
+    private final Dates dates;
+
     @SerializedName("total_pages")
     private final int totalPages;
 
-    @SerializedName("results")
-    private final List<Results> results;
-
-    public MoviePopular(int page, int totalResults, int totalPages, List<Results> results) {
+    public MovieUpcoming(List<Results> results, int page, int totalResults, Dates dates,
+                         int totalPages) {
+        this.results = results;
         this.page = page;
         this.totalResults = totalResults;
+        this.dates = dates;
         this.totalPages = totalPages;
-        this.results = results;
+    }
+
+    public List<Results> getResults() {
+        return results;
     }
 
     public int getPage() {
@@ -33,12 +42,12 @@ public class MoviePopular {
         return totalResults;
     }
 
-    public int getTotalPages() {
-        return totalPages;
+    public Dates getDates() {
+        return dates;
     }
 
-    public List<Results> getResults() {
-        return results;
+    public int getTotalPages() {
+        return totalPages;
     }
 
     public static class Results {
@@ -158,6 +167,27 @@ public class MoviePopular {
 
         public String getReleaseDate() {
             return releaseDate;
+        }
+    }
+
+    public static class Dates {
+        @SerializedName("maximum")
+        private final String maximum;
+
+        @SerializedName("minimum")
+        private final String minimum;
+
+        public Dates(String maximum, String minimum) {
+            this.maximum = maximum;
+            this.minimum = minimum;
+        }
+
+        public String getMaximum() {
+            return maximum;
+        }
+
+        public String getMinimum() {
+            return minimum;
         }
     }
 }
