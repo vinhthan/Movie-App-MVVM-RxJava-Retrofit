@@ -156,6 +156,7 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         //Toast.makeText(this, "Position "+position, Toast.LENGTH_SHORT).show();
         Intent intentUpcoming = new Intent(MainActivity.this, DetailUpcomingActivity.class);
         intentUpcoming.putExtra("titleUpcoming", movieUpcoming.getTitle());
+        intentUpcoming.putExtra("txvDes", movieUpcoming.getOverview());
         intentUpcoming.putExtra("imageUpcoming", movieUpcoming.getBackdropPath());
 
 

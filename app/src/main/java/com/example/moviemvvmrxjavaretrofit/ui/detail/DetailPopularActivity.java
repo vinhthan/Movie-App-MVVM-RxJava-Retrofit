@@ -26,7 +26,7 @@ public class DetailPopularActivity extends AppCompatActivity {
         txvTitlePupular = findViewById(R.id.txvTitlePopular);
         txvDes = findViewById(R.id.txvDescription);
         imgPopula = findViewById(R.id.imgpopular);
-        imgSmal = findViewById(R.id.imgSmal);
+        imgSmal = findViewById(R.id.imgSmalUp);
 
         Intent intent = getIntent();
         String txvTitle = intent.getStringExtra("titlePopular");

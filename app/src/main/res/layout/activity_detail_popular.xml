@@ -26,7 +26,7 @@
         <ImageView
             android:id="@+id/imgpopular"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:src="@drawable/gradient_bg"
             app:layout_constraintBottom_toBottomOf="@+id/detailMovieCover"
@@ -49,11 +49,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgSmal"
+            app:layout_constraintStart_toEndOf="@+id/imgSmalUp"
             app:layout_constraintTop_toBottomOf="@+id/detailMovieCover" />
 
         <ImageView
-            android:id="@+id/imgSmal"
+            android:id="@+id/imgSmalUp"
             android:layout_width="135dp"
             android:layout_height="175dp"
             android:layout_marginStart="16dp"
@@ -74,7 +74,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/txvTitlePopular"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imgSmal"
+            app:layout_constraintStart_toStartOf="@+id/imgSmalUp"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView

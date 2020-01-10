@@ -13,18 +13,18 @@
 
         <ImageView
             android:id="@+id/imgPosterUpcoming"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:scaleType="centerCrop"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgUp"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="@+id/imgPosterUpcoming"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/imgPosterUpcoming"
@@ -32,7 +32,7 @@
             app:srcCompat="@drawable/bg_gradient" />
 
         <ImageView
-            android:id="@+id/imgSmallPosterUpcoming"
+            android:id="@+id/imgSmalUp"
             android:layout_width="135dp"
             android:layout_height="175dp"
             android:scaleType="centerCrop"
@@ -43,7 +43,7 @@
             app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
-            android:id="@+id/txvTitleUpcoming1"
+            android:id="@+id/txvTitleUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -54,20 +54,20 @@
             android:textStyle="bold"
             android:textColor="@color/colorWhile"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgSmallPosterUpcoming"
+            app:layout_constraintStart_toEndOf="@+id/imgSmalUp"
             app:layout_constraintTop_toBottomOf="@+id/imgPosterUpcoming" />
 
         <TextView
-            android:id="@+id/txvOverviewUpcoming"
+            android:id="@+id/txvDesUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text=""
             android:textColor="@color/colorWhile"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/txvTitleUpcoming1"
-            app:layout_constraintStart_toStartOf="@+id/imgSmallPosterUpcoming"
-            app:layout_constraintTop_toBottomOf="@+id/txvTitleUpcoming1" />
+            app:layout_constraintEnd_toEndOf="@+id/txvTitleUp"
+            app:layout_constraintStart_toStartOf="@+id/imgSmalUp"
+            app:layout_constraintTop_toBottomOf="@+id/txvTitleUp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
