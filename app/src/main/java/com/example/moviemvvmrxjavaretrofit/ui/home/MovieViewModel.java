@@ -2,12 +2,10 @@ package com.example.moviemvvmrxjavaretrofit.ui.home;
 
 import android.annotation.SuppressLint;
 import android.util.Log;
-
 import com.example.moviemvvmrxjavaretrofit.data.model.api.Constants;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
 import com.example.moviemvvmrxjavaretrofit.data.remote.ApiManager;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
@@ -32,8 +30,8 @@ public class MovieViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(moviePopular -> {
                     moviesPopularBehaviorSubject.onNext(moviePopular);
-                }, error ->{
-                    Log.d("TAG", "getMovies: " + error);
+                }, errorPopular ->{
+                    Log.d("TAG", "getMovies: " + errorPopular);
                 });
 
     }
@@ -45,6 +43,8 @@ public class MovieViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(movieUpcoming -> {
                     movieUpcomingBehaviorSubject.onNext(movieUpcoming);
+                }, errorUp -> {
+                    Log.d("TAG", "getMovies: " + errorUp);
                 });
     }
 

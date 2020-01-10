@@ -36,8 +36,8 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         MoviePopular.Results movie = list.get(position);
 
-        holder.txvTitle.setText(movie.getTitle());
-        Glide.with(context).load(movie.getBackdropPath()).into(holder.imgBackdropPath);
+        holder.txvTitlePopular.setText(movie.getTitle());
+        Glide.with(context).load(movie.getBackdropPath()).into(holder.imgBackdropPathPopular);
     }
 
     @Override
@@ -46,12 +46,12 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView txvTitle;
-        private ImageView imgBackdropPath;
+        private TextView txvTitlePopular;
+        private ImageView imgBackdropPathPopular;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txvTitle = itemView.findViewById(R.id.txvTitle);
-            imgBackdropPath = itemView.findViewById(R.id.imgBackdropPath);
+            txvTitlePopular = itemView.findViewById(R.id.txvTitlePopular);
+            imgBackdropPathPopular = itemView.findViewById(R.id.imgBackdropPathPopular);
         }
     }
 }

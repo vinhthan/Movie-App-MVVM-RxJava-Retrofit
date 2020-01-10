@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
     private static Retrofit retrofit;
 
-    public static Retrofit getRetrofitMoviePopular(){
+    public static Retrofit getRetrofit(){
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -18,12 +18,12 @@ public class ApiClient {
         return retrofit;
     }
 
-    public static Retrofit getRetrofitMovieUpcoming(){
+/*    public static Retrofit getRetrofitMovieUpcoming(){
         retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
         return retrofit;
-    }
+    }*/
 }

@@ -11,14 +11,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.moviemvvmrxjavaretrofit.R;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
+
 import java.util.List;
 
 public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdapter.ViewHolder> {
-    private List<MovieUpcoming.Results> list;
+    private List<MovieUpcoming.Results> upcomingList;
     private Context context;
 
-    public MovieUpcomingAdapter(List<MovieUpcoming.Results> list, Context context) {
-        this.list = list;
+    public MovieUpcomingAdapter(List<MovieUpcoming.Results> upcomingList, Context context) {
+        this.upcomingList = upcomingList;
         this.context = context;
     }
 
@@ -31,7 +32,7 @@ public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdap
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        MovieUpcoming.Results movie = list.get(position);
+        MovieUpcoming.Results movie = upcomingList.get(position);
 
         holder.txvTitleUp.setText(movie.getTitle());
         Glide.with(context).load(movie.getBackdropPath()).into(holder.imgBackdropPathUp);
@@ -39,7 +40,7 @@ public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdap
 
     @Override
     public int getItemCount() {
-        return list.size();
+        return upcomingList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -47,8 +48,8 @@ public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdap
         private ImageView imgBackdropPathUp;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            txvTitleUp = itemView.findViewById(R.id.textView);
-            imgBackdropPathUp = itemView.findViewById(R.id.imgBackdropPath);
+            txvTitleUp = itemView.findViewById(R.id.txvTitleUp);
+            imgBackdropPathUp = itemView.findViewById(R.id.imgBackdropPathUp);
         }
     }
 }

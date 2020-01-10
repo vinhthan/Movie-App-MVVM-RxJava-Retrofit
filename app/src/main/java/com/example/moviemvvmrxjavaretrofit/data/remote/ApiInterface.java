@@ -4,7 +4,6 @@ import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
 
 import io.reactivex.Observable;
-import io.reactivex.schedulers.Schedulers;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 

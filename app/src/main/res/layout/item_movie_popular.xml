@@ -5,14 +5,14 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/imgBackdropPath"
+        android:id="@+id/imgBackdropPathPopular"
         android:src="@drawable/ic_launcher_background"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="300dp"/>
 
     <TextView
-        android:id="@+id/txvTitle"
+        android:id="@+id/txvTitlePopular"
         android:layout_marginTop="8dp"
         android:textSize="20sp"
         android:text="Title"
