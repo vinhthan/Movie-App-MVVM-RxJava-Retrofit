@@ -1,4 +1,4 @@
-package com.example.moviemvvmrxjavaretrofit.ui.home;
+package com.example.moviemvvmrxjavaretrofit.ui.home.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,23 +6,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.moviemvvmrxjavaretrofit.R;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
-
 import java.util.List;
 
 public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapter.ViewHolder> {
     private List<MoviePopular.Results> list;
     private Context context;
+    private ItemClickListenerPopular itemClickListenerPopular;
 
-    public MoviePopularAdapter(List<MoviePopular.Results> list, Context context) {
+    public MoviePopularAdapter(List<MoviePopular.Results> list, Context context, ItemClickListenerPopular itemClickListenerPopular) {
         this.list = list;
         this.context = context;
+        this.itemClickListenerPopular = itemClickListenerPopular;
     }
 
     @NonNull
@@ -45,6 +44,8 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
         return list.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         private TextView txvTitlePopular;
         private ImageView imgBackdropPathPopular;
@@ -52,6 +53,15 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
             super(itemView);
             txvTitlePopular = itemView.findViewById(R.id.txvTitlePopular);
             imgBackdropPathPopular = itemView.findViewById(R.id.imgBackdropPathPopular);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClickListenerPopular.onClickPopular(getPosition());
+                }
+            });
+
         }
     }
+
 }

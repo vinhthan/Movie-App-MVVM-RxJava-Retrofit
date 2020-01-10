@@ -4,13 +4,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.moviemvvmrxjavaretrofit.R;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
+import com.example.moviemvvmrxjavaretrofit.ui.detail.DetailPopularActivity;
+import com.example.moviemvvmrxjavaretrofit.ui.detail.DetailUpcomingActivity;
+import com.example.moviemvvmrxjavaretrofit.ui.home.adapter.ItemClickListenerPopular;
+import com.example.moviemvvmrxjavaretrofit.ui.home.adapter.ItemClickListenerUpcoming;
+import com.example.moviemvvmrxjavaretrofit.ui.home.adapter.MoviePopularAdapter;
+import com.example.moviemvvmrxjavaretrofit.ui.home.adapter.MovieUpcomingAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +27,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ItemClickListenerPopular, ItemClickListenerUpcoming {
     private ImageView imgLeft, imgRight;
     private RecyclerView recyclerViewPopular, recyclerViewUpComing;
     private List<MoviePopular.Results> mPopularList;
@@ -41,13 +50,17 @@ public class MainActivity extends AppCompatActivity {
         getMovieUpcoming();
 
         hideShowLeftRight();
+
+
+
+
     }
 
 
     private void getMoviesPopular() {
         recyclerViewPopular = findViewById(R.id.recyclerViewPopular);
         mPopularList = new ArrayList<>();//thu tu khai bao phai dung truoc sau
-        mPopularAdapter = new MoviePopularAdapter(mPopularList, this);
+        mPopularAdapter = new MoviePopularAdapter(mPopularList, this, this::onClickPopular);
         recyclerViewPopular.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerViewPopular.setHasFixedSize(true);
         recyclerViewPopular.setAdapter(mPopularAdapter);
@@ -68,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     private void getMovieUpcoming() {
         recyclerViewUpComing = findViewById(R.id.recyclerViewUpComing);
         mUpcomingList = new ArrayList<>();//thu tu khai bao phai dung truoc sau
-        mUpcomingAdapter = new MovieUpcomingAdapter(mUpcomingList, this);
+        mUpcomingAdapter = new MovieUpcomingAdapter(mUpcomingList, this, this::onClickUpcoming);
         recyclerViewUpComing.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         recyclerViewUpComing.setHasFixedSize(true);
         recyclerViewUpComing.setAdapter(mUpcomingAdapter);
@@ -115,10 +128,34 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
         compositeDisposable.dispose();
+    }
+
+
+    @Override
+    public void onClickPopular(int position) {
+        MoviePopular.Results moviePopular = mPopularList.get(position);
+        //Toast.makeText(this, "Position "+position, Toast.LENGTH_SHORT).show();
+        Intent intentPopular = new Intent(MainActivity.this, DetailPopularActivity.class);
+        intentPopular.putExtra("titlePopular", moviePopular.getTitle());
+        intentPopular.putExtra("imagePopular", moviePopular.getBackdropPath());
+
+        startActivity(intentPopular);
+    }
+
+    @Override
+    public void onClickUpcoming(int position) {
+        MovieUpcoming.Results movieUpcoming = mUpcomingList.get(position);
+        //Toast.makeText(this, "Position "+position, Toast.LENGTH_SHORT).show();
+        Intent intentUpcoming = new Intent(MainActivity.this, DetailUpcomingActivity.class);
+        intentUpcoming.putExtra("titleUpcoming", movieUpcoming.getTitle());
+        intentUpcoming.putExtra("imageUpcoming", movieUpcoming.getBackdropPath());
+
+        startActivity(intentUpcoming);
     }
 }
 //api key:

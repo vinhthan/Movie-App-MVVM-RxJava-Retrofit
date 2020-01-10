@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundMain"
     tools:context=".ui.home.MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,6 +37,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/popular"
             android:textSize="20sp"
+            android:textColor="@color/colorWhile"
             app:layout_constraintEnd_toEndOf="@+id/recyclerViewUpComing"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/recyclerViewUpComing"

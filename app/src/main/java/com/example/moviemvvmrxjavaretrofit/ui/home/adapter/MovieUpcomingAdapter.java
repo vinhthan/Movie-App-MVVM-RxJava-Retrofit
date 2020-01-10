@@ -1,4 +1,4 @@
-package com.example.moviemvvmrxjavaretrofit.ui.home;
+package com.example.moviemvvmrxjavaretrofit.ui.home.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,16 +11,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.moviemvvmrxjavaretrofit.R;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
-
 import java.util.List;
 
 public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdapter.ViewHolder> {
     private List<MovieUpcoming.Results> upcomingList;
     private Context context;
+    private ItemClickListenerUpcoming itemClickListenerUpcoming;
 
-    public MovieUpcomingAdapter(List<MovieUpcoming.Results> upcomingList, Context context) {
+    public MovieUpcomingAdapter(List<MovieUpcoming.Results> upcomingList, Context context, ItemClickListenerUpcoming itemClickListenerUpcoming) {
         this.upcomingList = upcomingList;
         this.context = context;
+        this.itemClickListenerUpcoming = itemClickListenerUpcoming;
     }
 
     @NonNull
@@ -50,6 +51,16 @@ public class MovieUpcomingAdapter extends RecyclerView.Adapter<MovieUpcomingAdap
             super(itemView);
             txvTitleUp = itemView.findViewById(R.id.txvTitleUp);
             imgBackdropPathUp = itemView.findViewById(R.id.imgBackdropPathUp);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    itemClickListenerUpcoming.onClickUpcoming(getPosition());
+                }
+            });
+
         }
     }
+
+
 }

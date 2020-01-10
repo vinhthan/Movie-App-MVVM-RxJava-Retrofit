@@ -6,6 +6,8 @@ import com.example.moviemvvmrxjavaretrofit.data.model.api.Constants;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MoviePopular;
 import com.example.moviemvvmrxjavaretrofit.data.model.api.MovieUpcoming;
 import com.example.moviemvvmrxjavaretrofit.data.remote.ApiManager;
+import com.jakewharton.rxbinding2.view.RxView;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.subjects.BehaviorSubject;
@@ -47,5 +49,7 @@ public class MovieViewModel {
                     Log.d("TAG", "getMovies: " + errorUp);
                 });
     }
+
+
 
 }
