@@ -24,7 +24,7 @@
             tools:ignore="MissingConstraints" />
 
         <ImageView
-            android:id="@+id/imgPosterDetail"
+            android:id="@+id/imgpopular"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="centerCrop"
@@ -37,7 +37,7 @@
             app:layout_constraintVertical_bias="1.0" />
 
         <TextView
-            android:id="@+id/txvDetailMovieTitle"
+            android:id="@+id/txvTitlePopular"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -49,11 +49,11 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgSmalPoster"
+            app:layout_constraintStart_toEndOf="@+id/imgSmal"
             app:layout_constraintTop_toBottomOf="@+id/detailMovieCover" />
 
         <ImageView
-            android:id="@+id/imgSmalPoster"
+            android:id="@+id/imgSmal"
             android:layout_width="135dp"
             android:layout_height="175dp"
             android:layout_marginStart="16dp"
@@ -72,9 +72,9 @@
             android:text=""
             android:textColor="@color/colorWhile"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/txvDetailMovieTitle"
+            app:layout_constraintEnd_toEndOf="@+id/txvTitlePopular"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imgSmalPoster"
+            app:layout_constraintStart_toStartOf="@+id/imgSmal"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
@@ -84,8 +84,8 @@
             android:layout_marginTop="16dp"
             android:textColor="@color/colorWhile"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="@+id/txvDetailMovieTitle"
-            app:layout_constraintTop_toBottomOf="@+id/txvDetailMovieTitle" />
+            app:layout_constraintEnd_toEndOf="@+id/txvTitlePopular"
+            app:layout_constraintTop_toBottomOf="@+id/txvTitlePopular" />
 
         <!--        <ImageView
                     android:id="@+id/imgPlay"

@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.moviemvvmrxjavaretrofit.R;
 
 public class DetailPopularActivity extends AppCompatActivity {
-    private TextView txvTitleUp;
-    private ImageView imgUp;
+    private TextView txvTitlePupular, txvDes;
+    private ImageView imgPopula, imgSmal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,23 @@ public class DetailPopularActivity extends AppCompatActivity {
     }
 
     private void getIntentFromMain() {
+        txvTitlePupular = findViewById(R.id.txvTitlePopular);
+        txvDes = findViewById(R.id.txvDescription);
+        imgPopula = findViewById(R.id.imgpopular);
+        imgSmal = findViewById(R.id.imgSmal);
+
         Intent intent = getIntent();
         String txvTitle = intent.getStringExtra("titlePopular");
+        txvTitlePupular.setText(txvTitle);
+
+        String txvDe = intent.getStringExtra("txvDes");
+        txvDes.setText(txvDe);
+
+        String imgPopular = intent.getStringExtra("imagePopular");
+        Glide.with(this).load(imgPopular).into(imgPopula);
+
+        String imgSma = intent.getStringExtra("imagePopular");
+        Glide.with(this).load(imgSma).into(imgSmal);
 
     }
 }

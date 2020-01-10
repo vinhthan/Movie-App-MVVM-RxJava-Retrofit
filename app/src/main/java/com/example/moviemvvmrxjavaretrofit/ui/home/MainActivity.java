@@ -142,7 +142,10 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         //Toast.makeText(this, "Position "+position, Toast.LENGTH_SHORT).show();
         Intent intentPopular = new Intent(MainActivity.this, DetailPopularActivity.class);
         intentPopular.putExtra("titlePopular", moviePopular.getTitle());
+        intentPopular.putExtra("txvDes", moviePopular.getOverview());
         intentPopular.putExtra("imagePopular", moviePopular.getBackdropPath());
+        //
+
 
         startActivity(intentPopular);
     }
@@ -154,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements ItemClickListener
         Intent intentUpcoming = new Intent(MainActivity.this, DetailUpcomingActivity.class);
         intentUpcoming.putExtra("titleUpcoming", movieUpcoming.getTitle());
         intentUpcoming.putExtra("imageUpcoming", movieUpcoming.getBackdropPath());
+
+
 
         startActivity(intentUpcoming);
     }
